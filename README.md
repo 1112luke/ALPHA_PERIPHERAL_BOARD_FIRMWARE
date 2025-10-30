@@ -13,7 +13,7 @@ This board was developed for NDXP's Alpha engine. Its purpose is to serve as a p
 
 ## Firmware Overview
 
-The board runs an STM31F1 at 64 MHZ. the project was initialized and should be managed using STM32CubeMx anytime new peripherals or clock speeds are needed. We use VSCode to program, simply calling MAKE in the directory to build. The bin files can then be uploaded to the board via USB using STM32CubeProgrammer.
+The board runs an STM32F1 at 64 MHZ. the project was initialized and should be managed using STM32CubeMx anytime new peripherals or clock speeds are needed. We use VSCode to program, simply calling MAKE in the directory to build. The bin files can then be uploaded to the board via USB using STM32CubeProgrammer.
 
 ## Specifications
 
