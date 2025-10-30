@@ -1,4 +1,4 @@
-<h1 align="center">🥵🚀NDXP Alpha Peripheral Board F🚀🌡️</h1>
+<h1 align="center">🥵🚀NDXP Alpha Peripheral Board🚀🌡️</h1>
 
 <p align="center">
   <img width="743" height="814" alt="Screenshot 2025-10-28 at 10 34 32 AM" src="https://github.com/user-attachments/assets/e87d1523-c357-4bfe-8ced-518662b40554" />
