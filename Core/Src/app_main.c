@@ -53,6 +53,7 @@ int app_main()
             {
                 // Read sensors
                 ALPHA_READ_TEMP(&A);
+                ALPHA_READ_ACCELEROMETER(&A);
                 // Send Data
                 ALPHA_SEND_10HZ(&A);
             }

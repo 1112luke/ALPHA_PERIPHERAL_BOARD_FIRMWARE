@@ -38,6 +38,11 @@ typedef struct
     uint16_t p11;
     uint16_t p12;
 
+    // Accelerometer data
+    int16_t a_x;
+    int16_t a_y; 
+    int16_t a_z;
+
     // load cell
     ADS1231_t load_cell;
     int32_t load_cell_value;
@@ -66,6 +71,8 @@ uint8_t ALPHA_COMMS_INIT(Alpha *a);
 uint8_t ALPHA_READ_TEMP(Alpha *a);
 
 uint8_t ALPHA_READ_PRESSURE(Alpha *a);
+
+uint8_t ALPHA_READ_ACCELEROMETER(Alpha *a);
 
 uint8_t ALPHA_READ_LOADCELL(Alpha *a);
 

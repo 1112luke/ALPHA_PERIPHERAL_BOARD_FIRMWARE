@@ -2,6 +2,7 @@
 #include "XPLink.h"
 #include "dmacirc.h"
 #include "uart_rx.h"
+#include "Bno055.h"
 
 uint8_t ALPHA_STATE_INIT(Alpha *a)
 {
@@ -61,6 +62,10 @@ uint8_t ALPHA_SENSORS_INIT(Alpha *a)
     }
     a->load_cell_value = 0; // Initialize reading to 0
 
+    // Intialize Accelerometer 
+    bno055_assignI2C(&hi2c1);
+    bno055_setup();
+    bno055_setOperationModeNDOF();
     return 0;
 }
 
@@ -75,6 +80,18 @@ uint8_t ALPHA_COMMS_INIT(Alpha *a)
     return 0;
 }
 
+uint8_t ALPHA_READ_ACCELEROMETER(Alpha *a)
+{
+    // read accelerometer data
+    bno0555_vector_t v= bn0055_getVectorEuler();
+    
+    a->a_x = v.x;
+    a->a_y = v.y;      
+    a->a_z = v.z;
+
+
+    return 0;
+}
 uint8_t ALPHA_READ_TEMP(Alpha *a)
 {
 
@@ -153,6 +170,12 @@ uint8_t ALPHA_SEND_10HZ(Alpha *a)
     XPLINK_PACK(packet, &pkt4);
     dmasend(packet, 12);
 
+    // Send Accelerometer Data 
+    xp_packet_t pkt2; 
+    pk2.data = a.x|(a.y << 16)|(a.z << 32);
+    pkt2.type = ACC;
+    XPLINK_PACK(packet, &pkt2);
+    dmasend(packet, 12);
     return 0;
 }
 
